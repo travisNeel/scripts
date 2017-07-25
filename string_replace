@@ -1,0 +1,36 @@
+#!/usr/bin/php
+
+##########################################
+#       								 #
+#         String Replacment Script       #
+#										 #
+##########################################
+ 
+ <?php
+$inputFile = "f1";
+$outputFile = "tempFile";
+$string = 'beep';
+$replacement = "BAAAAAAM";
+$myfile = fopen($inputFile, "r") or die("Unable to open file!");
+$list = array("");
+
+while(!feof($myfile)) {
+	array_push($list,(fgets($myfile)));
+}
+
+function replace($data,$key,$replace){
+	$myNewfile = fopen($outputFile, "w") or die("Unable to open file!");
+	for ($i = 1; $i <= count($data); $i++){
+		//echo $data[$i];
+		if (trim($data[$i]) == trim($key)) {
+			$data[$i] = $replace;
+			echo 'Replaced string in line '.$i.PHP_EOL;
+		}
+		fwrite($myNewfile, $data[$i]);
+	}	
+	fclose($myNewfile);
+}
+
+replace($list,$string,$replacement);
+fclose($myfile);
+?> 
