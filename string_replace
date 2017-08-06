@@ -7,10 +7,10 @@
 ##########################################
  
  <?php
-$inputFile = "f1";
+$inputFile = "file to replace";
 $outputFile = "tempFile";
-$string = 'beep';
-$replacement = "BAAAAAAM";
+$string = 'string to replace';
+$replacement = "replacement string";
 $myfile = fopen($inputFile, "r") or die("Unable to open file!");
 $list = array("");
 
